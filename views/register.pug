@@ -1,0 +1,44 @@
+html
+	header
+		title register
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+	body
+		a(href="./") Trang chủ
+		h2 Cảm ơn vì đã sử dụng dịch vụ của chúng tôi
+		- var err = errors 
+			if(err)
+				each error in err 
+					p=error.msg
+		if(error_msg)
+			p=error_msg
+		form(action="/users/register", method="POST")
+			div
+				label(for = "email") Your Email:
+				input(class="form-control" placeholder="example@email.com" type="email" name="email")
+			br
+			div
+				label(for = "name") Your username:
+				input(class="form-control" placeholder="Your username" name="username")
+			br
+			div
+				label(for ="password") Password:
+				input(class="form-control" placeholder="password" type="password" name="password")
+			br
+			div
+				label(for ="password1") Confirm Password:
+				input(class="form-control" placeholder="confirm-password" type="password" name="password1")
+			div
+				p Bạn sử dụng với mục đích gì
+			div
+				label(for="ind") Cá Nhân: 
+				input#c1(type="checkbox" name="personal" checked)
+			div
+				label(for="com") Công ty:
+				input#c2(type="checkbox" name="company")
+			button(type="submit") Đăng ký
+		if(success_msg)
+			p=sucess_msg
+		p Bạn đã có tài khoản ?
+		a(href="./login") Đăng nhập
+		script
+			include ./../script/checked.js

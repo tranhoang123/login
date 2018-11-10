@@ -1,0 +1,24 @@
+html
+	header 
+		title Login
+	body
+		a(href="./") Trang Chủ
+		if(success_msg)
+			p=success_msg
+		if(errors_msg)
+			.error_msg
+			p=error_msg
+		h2 Chào mừng đến trang đăng nhập
+		form(action="/users/login" method="POST")
+			div
+				label(for="username") Tên:
+				input(class="form-control" placeholder="Tên tài khoản" name="username")
+			br
+			div
+				label(for="password") Mật khẩu:
+				input(class="form-control" placeholder="password" name="password" type="password")
+			br
+			button(type="submit") Đăng nhập
+		p Bạn chưa có tài khoản ?
+		a(href="./register") Đăng ký
+
